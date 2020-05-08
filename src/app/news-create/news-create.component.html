@@ -1,0 +1,79 @@
+<div class="container-scroller">
+  <!-- partial:partials/_horizontal-navbar.html -->
+  <app-header></app-header>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper" style="font-family: 'Sarabun', sans-serif;">
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          
+          <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">เลือกรูปภาพ</h4>
+                <p class="card-description">
+                </p>
+
+                <div class="form-group" *ngIf="imageSrc != null">
+                    <label class="col-sm-2 control-label">Image</label>
+                    <div class="col-sm-10">
+                      <div class="input-group">
+                        <input type="hidden" name="image">
+                        <img src="{{imageSrc}}" style="height: 200px;">
+        
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="form-group" style="margin-top:15px">
+                    <div class="col-sm-12 col-sm-offset-2">
+                      <div>
+                        <ul class="btn-nav row" id="rcorners">
+                          <li>
+                            <span style="margin-left:2px;" class="btn btn-default">
+                              <!-- <img src="{{baseUrl}}images/38.jpg" style="width:25px;height:20px"> -->
+                              <span style="color:#00B0CD;margin-left:10px;"><i class="mdi mdi-upload"></i> Browse Image</span>
+                              <input type="file" (change)="onUploadImage($event)" class="picupload" multiple="" accept="image/*"
+                                id="files">
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">ข้อมูลข่าวสาร</h4>
+                <p class="card-description">
+                </p>
+
+                <div class="form-group">
+                  <label for="exampleInputUsername1">ข้อความ</label>
+                  <textarea [(ngModel)]="mProduct.msg" class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                </div>
+
+                <button class="btn btn-primary mr-2" (click)="onAddProduct()"><i class="mdi mdi-send "></i>  Sent</button>
+               <button class="btn btn-light" (click)="onClickCancel()">Cancel </button>
+          
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
+

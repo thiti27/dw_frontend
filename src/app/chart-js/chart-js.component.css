@@ -1,0 +1,12 @@
+.apexcharts-legend {
+    overflow: hidden !important;
+    min-height: 17px;
+  }
+  .apexcharts-legend-marker {
+    background: none !important;
+    margin-right: 7px !important;
+  }
+  .apexcharts-legend-series {
+    align-items: flex-start !important;
+  }
+  

@@ -1,0 +1,138 @@
+<div class="container-scroller">
+    <!-- partial:partials/_horizontal-navbar.html -->
+    <app-header></app-header>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper" style="font-family: 'Sarabun', sans-serif;">
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-6 mb-4 mb-xl-0">
+              <div class="d-lg-flex align-items-center">
+                <div>
+                  <h3 class="text-dark font-weight-bold mb-2">ข้อมูลผู้ใช้งานทั้งหมด</h3>
+                  <h6 class="font-weight-normal mb-2">สามารถกดเพิ่ม ค้นหา แก้ไข ลบ ผู้ใช้งานได้</h6>
+                </div>
+  
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="d-flex align-items-center justify-content-md-end" style="font-family: 'Sarabun', sans-serif;">
+                <div class="pr-1 mb-3 mb-xl-0">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="search">
+                        <i class="mdi mdi-magnify"></i>
+                      </span>
+                    </div>
+                    <input  (keyup)="onSearch($event.target.value)"  type="text" class="form-control" placeholder="ค้นหาชื่อผู้ใช้งาน" aria-label="search"
+                      aria-describedby="search">
+                  </div>
+                </div>
+  
+  
+                <div class="pr-1 mb-3 mb-xl-0">
+                  <button [routerLink]="[ '/user/create']" type="button" class="btn btn-dark btn-lg btn-block">
+                    <i class="mdi mdi-account-multiple-plus"></i>
+                    เพิ่มผู้ใช้งานใหม่
+                  </button>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+  
+  
+  
+                  <div class="table-responsive pt-3" style="font-family: 'Sarabun', sans-serif;">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th style="width: 5%;">
+                            #
+                          </th>
+                          <th >
+                            <b style="width: 15%;">ชื่อ</b>
+                          </th>
+                         
+                          <th style="width: 15%;">
+                            <b>นามสกุล</b>
+                          </th>
+                          <th style="width: 15%;">
+                            <b>เบอร์โทร</b>
+                          </th>
+                          <th style="width: 15%;">
+                            <b>Email</b>
+                          </th>
+  
+                          <th style="width: 15%;">
+                            <b>Token</b>
+                          </th>
+                          <th style="width: 10%;">
+                            <b>Action</b>
+                          </th>
+                          <th style="width: 10%;">
+                            <b>Active</b>
+                          </th>
+                         
+  
+  
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of mDataArray">
+                          <td>{{item.id}}</td>
+                          <td>
+                            {{item.f_name}}
+                          </td>
+                          <td>
+                            {{item.l_name}}
+                          </td>
+                          <td>
+                            {{item.phone}}
+                          </td>
+                          <td>
+                            {{item.email}}
+                          </td>
+                          <td>
+                            {{item.token}}
+                          </td>
+                          <td>
+  
+                            <button (click)="editItem(item.id)" type="button" class="btn btn-inverse-info btn-icon">
+                              <i class="mdi mdi-lead-pencil"></i>
+                            </button>
+                            <button (click)="deleteItem(item.id)" type="button" class="btn btn-inverse-danger btn-icon">
+                              <i class="mdi mdi-delete-forever"></i>
+                            </button>
+  
+                          </td>
+  
+                          <td>
+                            <button *ngIf="item.active == '0'" (click)="active(item.id)" type="button" class="btn btn-outline-primary">Active</button>
+                            <button  *ngIf="item.active  == '1'" (click)="unActive(item.id)"  type="button" class="btn btn-link btn-fw" ><i class="mdi mdi-check"></i></button>
+                          </td>
+  
+                        </tr>
+  
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+  
+          </div>
+  
+        </div>
+  
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  
